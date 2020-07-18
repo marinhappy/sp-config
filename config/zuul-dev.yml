@@ -1,7 +1,14 @@
 spring:
   application:
     name: zuul
-    
+    cloud:
+    config:
+      override-none: true
+    rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: admin 
 server:  port: 3001
   
 eureka:  client:    service-url:      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
@@ -10,7 +17,7 @@ zuul:
   routes:    item-service: /item-service/**
     user-service: /user-service/**
     order-service: /order-service/**
-    retryable: true  #默认false,zuul不推荐使用重试
+    retryable: true  #榛樿false,zuul涓嶆帹鑽愪娇鐢ㄩ噸璇�
   
 ribbon:
   ConnectTimeout: 1000
